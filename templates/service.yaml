@@ -11,5 +11,5 @@ spec:
     project: roboshop
   ports:
     - protocol: TCP
-      port: {{ .values.service.port }} # service port
+      port: {{ .Values.service.port }} # service port
       targetPort: 80 # app/container port

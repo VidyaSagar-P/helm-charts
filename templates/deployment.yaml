@@ -7,7 +7,7 @@ metadata:
     project: roboshop
 spec:
   # modify replicas according to your case
-  replicas: {{ .values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       purpose: helm-demo
@@ -22,4 +22,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:{{ .values.deployment.imageVersion }}
+        image: nginx:{{ .Values.deployment.imageVersion }}
