@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helm
+  labels:
+    purpose: helm-practice
+    project: roboshop
+spec:
+  # modify replicas according to your case
+  replicas: {{ .values.deployment.replicas }}
+  selector:
+    matchLabels:
+      purpose: helm-demo
+      tier: frontend
+      project: roboshop
+  template:
+    metadata:
+      labels:
+        purpose: helm-demo
+        tier: frontend
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:{{ .values.deployment.imageVersion }}
